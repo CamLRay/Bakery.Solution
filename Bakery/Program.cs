@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Bakery;
 
 public class Program
@@ -54,7 +55,21 @@ public class Program
   public static void FinalizeOrder()
   {
     string total = (Bread.PriceCalc() + Pastry.PriceCalc()).ToString();
-    Console.WriteLine("Your total is $" + total +". Thank you for shopping at Tender Loaf Bakery");
+    DisplayOrder();
+    Console.WriteLine("Is your order correct? (Y/N)");
+    switch(Console.ReadLine().ToUpper())
+    {
+      case "N":
+        Bread.ClearAll();
+        Pastry.ClearAll();
+        Console.WriteLine("Your order has been cleared, please resubmit your order.");
+        Shopping();
+        break;
+
+      default:
+        Console.WriteLine("Your total is $" + total +". Thank you for shopping at Tender Loaf Bakery");
+        break;
+    }
   }
 
   public static void BreadSelect()
@@ -71,5 +86,27 @@ public class Program
     int pastries = int.Parse(Console.ReadLine());
     Pastry newBreadOrder = new Pastry(pastries);
     Console.WriteLine(pastries+ " pastries have been added to your order. Total pastry cost is $" +Pastry.PriceCalc().ToString() + ".");
+  }
+
+  public static void DisplayOrder()
+  {
+    List<Bread> breadOrder = Bread.GetOrder();
+    List<Pastry> pastryOrder = Pastry.GetOrder();
+    if(breadOrder.Count > 0)
+    {
+      Console.WriteLine("Your bread order is:");
+      for(int i = 0; i < breadOrder.Count; i++)
+      {
+        Console.WriteLine((i+1).ToString() + ": " + breadOrder[i].Type);
+      }
+    }
+    if(pastryOrder.Count > 0)
+    {
+      Console.WriteLine("Your Pastry order is:");
+      for(int i = 0; i < pastryOrder.Count; i++)
+      {
+        Console.WriteLine((i+1).ToString() + ": " + pastryOrder[i].Type);
+      }
+    }
   }
 }
