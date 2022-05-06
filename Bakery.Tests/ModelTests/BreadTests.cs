@@ -27,13 +27,14 @@ namespace Bakery.Tests
       Assert.AreEqual(1, Bread.GetBreadOrder().Count);
     }
 
-    // [TestMethod]
-    // public void BreadConstructor_AddsMultipleBread_ListOfBread()
-    // {
-    //   Bread newBread = new Bread(3);
+    [TestMethod]
+    public void BreadConstructor_AddsMultipleBread_ListOfBread()
+    {
+      Bread newBread = new Bread(3);
 
-    //   Assert.AreEqual(3, newBread.Count());
-    // }
+      Assert.AreEqual(3, Bread.GetBreadOrder().Count);
+    }
+    
 
   }
 }
