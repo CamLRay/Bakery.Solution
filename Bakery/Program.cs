@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Bakery;
 
 public class Program
@@ -74,17 +75,21 @@ public class Program
 
   public static void BreadSelect()
   {
+    Console.WriteLine("Wheat, White, or Sourdough?");
+    string breadType = Console.ReadLine();
     Console.WriteLine("How many loaves of bread would you like? Enter a number ie. 5.");
     int loaves = int.Parse(Console.ReadLine());
-    Bread newBreadOrder = new Bread(loaves);
+    Bread newBreadOrder = new Bread(loaves, breadType);
     Console.WriteLine(loaves+ " loaves have been added to your order. Total bread cost is $" + Bread.PriceCalc().ToString() + ".");
   }
 
   public static void PastrySelect()
   {
+    Console.WriteLine("Croissant, Cinnamon Roll, Doughnut?");
+    string pastryType = Console.ReadLine();
     Console.WriteLine("How many pastries would you like? Enter a number ie. 5.");
     int pastries = int.Parse(Console.ReadLine());
-    Pastry newBreadOrder = new Pastry(pastries);
+    Pastry newBreadOrder = new Pastry(pastries, pastryType);
     Console.WriteLine(pastries+ " pastries have been added to your order. Total pastry cost is $" +Pastry.PriceCalc().ToString() + ".");
   }
 
@@ -92,21 +97,39 @@ public class Program
   {
     List<Bread> breadOrder = Bread.GetOrder();
     List<Pastry> pastryOrder = Pastry.GetOrder();
+    Dictionary<string, int> receipt = new Dictionary<string, int>() {};
     if(breadOrder.Count > 0)
     {
-      Console.WriteLine("Your bread order is:");
       for(int i = 0; i < breadOrder.Count; i++)
       {
-        Console.WriteLine((i+1).ToString() + ": " + breadOrder[i].Type);
+        if(!receipt.ContainsKey(breadOrder[i].Type))
+        {
+        receipt.Add(breadOrder[i].Type, 1);
+        }
+        else
+        {
+          receipt[breadOrder[i].Type]++;
+        }
       }
     }
     if(pastryOrder.Count > 0)
     {
-      Console.WriteLine("Your Pastry order is:");
       for(int i = 0; i < pastryOrder.Count; i++)
       {
-        Console.WriteLine((i+1).ToString() + ": " + pastryOrder[i].Type);
+        if(!receipt.ContainsKey(pastryOrder[i].Type))
+        {
+        receipt.Add(pastryOrder[i].Type, 1);
+        }
+        else
+        {
+          receipt[pastryOrder[i].Type]++;
+        }
       }
     }
+
+    foreach (KeyValuePair<string, int> type in receipt)
+      {
+        Console.WriteLine(type.Value + "x " + type.Key);
+      }
   }
 }
