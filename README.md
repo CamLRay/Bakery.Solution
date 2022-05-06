@@ -9,10 +9,11 @@
 * .NET 5.0
 * C#
 * MSTest
-
+* REPL
 
 ## Description
 
+The Bakery Marketplace is a mock bakery storefront, users can navigate the shop to purchase bread and pastery. The user can purchase any amount and combination of each. It will calculate their total based on the bakery's current sale. Buy two get one free on bread and Buy two get one 50% off for the Pastry.
 
 ## Setup/Installation Requirements
 
