@@ -24,7 +24,7 @@ namespace Bakery.Tests
     {
       Bread newBread = new Bread();
 
-      Assert.AreEqual(1, Bread.GetBreadOrder().Count);
+      Assert.AreEqual(1, Bread.GetOrder().Count);
     }
 
     [TestMethod]
@@ -32,9 +32,35 @@ namespace Bakery.Tests
     {
       Bread newBread = new Bread(3);
 
-      Assert.AreEqual(3, Bread.GetBreadOrder().Count);
+      Assert.AreEqual(3, Bread.GetOrder().Count);
     }
-    
 
+    [TestMethod]
+    public void PriceCalc_CalculatesThePriceOfASingleLoaf_intPrice()
+    {
+      Bread newBread = new Bread();
+      Assert.AreEqual(5, Bread.PriceCalc());
+    }
+
+    [TestMethod]
+    public void PriceCalc_CalculatesThePriceOfTwoLoaves_intPrice()
+    {
+      Bread newBread = new Bread(2);
+      Assert.AreEqual(10, Bread.PriceCalc());
+    }
+
+    [TestMethod]
+    public void PriceCalc_CalculatesThePriceOfThreeLoaves_intPrice()
+    {
+      Bread newBread = new Bread(3);
+      Assert.AreEqual(10, Bread.PriceCalc());
+    }
+
+    [TestMethod]
+    public void PriceCalc_CalculatesThePriceOfManyLoaves_intPrice()
+    {
+      Bread newBread = new Bread(10);
+      Assert.AreEqual(35, Bread.PriceCalc());
+    }
   }
 }
