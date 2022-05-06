@@ -75,7 +75,8 @@ public class Program
 
   public static void BreadSelect()
   {
-    Console.WriteLine("Wheat, White, or Sourdough?");
+    Console.WriteLine("Bread is currently buy two get one free!.");
+    Console.WriteLine("Would you like, wheat, white, or sourdough?");
     string breadType = Console.ReadLine();
     Console.WriteLine("How many loaves of bread would you like? Enter a number ie. 5.");
     int loaves = int.Parse(Console.ReadLine());
@@ -85,6 +86,7 @@ public class Program
 
   public static void PastrySelect()
   {
+    Console.WriteLine("Pastries are currently buy two get one half off!.");
     Console.WriteLine("Croissant, Cinnamon Roll, Doughnut?");
     string pastryType = Console.ReadLine();
     Console.WriteLine("How many pastries would you like? Enter a number ie. 5.");

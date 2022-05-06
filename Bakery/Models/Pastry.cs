@@ -20,6 +20,7 @@ namespace Bakery
         _PastryOrder.Add(this);
       }
     }
+
     public Pastry(int num, string type)
     {
       Type = type;
@@ -28,7 +29,7 @@ namespace Bakery
         _PastryOrder.Add(this);
       }
     }
-
+    
     public static List<Pastry> GetOrder()
     {
       return _PastryOrder;

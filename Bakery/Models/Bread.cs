@@ -29,8 +29,7 @@ namespace Bakery
         _breadOrder.Add(this);
       }
     }
-
-
+    
     public static List<Bread> GetOrder()
     {
       return _breadOrder;

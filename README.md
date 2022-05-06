@@ -43,10 +43,3 @@ $ dotnet run
 ## Contact Information
 
 Copyright (c) _May 2022_ _Cameron Ray_
-
-
-"Pastries are $2 each."
-"Buy 3 pastries for $5."
-
-"Bread is $5 a loaf."
-"Buy two get one loaf free."

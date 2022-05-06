@@ -70,8 +70,5 @@ namespace Bakery.Tests
       Bread newBread = new Bread(10);
       Assert.AreEqual(35, Bread.PriceCalc());
     }
-
-    
-
   }
 }
