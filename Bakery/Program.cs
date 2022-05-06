@@ -1,3 +1,6 @@
+using System;
+using Bakery;
+
 public class Program
 {
   public static void Main()
@@ -7,11 +10,11 @@ public class Program
     string select = Console.ReadLine().ToUpper();
     switch(select)
       {
-        case "B":
+        case "P":
           PastrySelect();
           break;
 
-        case "P":
+        case "B":
           BreadSelect();
           break;
       }
@@ -19,9 +22,14 @@ public class Program
   }
   public static void BreadSelect()
   {
-    Console.WriteLine("How many loaves of bread would you like? Enter a number ie. 5.")
+    Console.WriteLine("How many loaves of bread would you like? Enter a number ie. 5.");
     int loaves = int.Parse(Console.ReadLine());
     Bread newBreadOrder = new Bread(loaves);
-    Console.WriteLine(loaves+ " loaves have been added to your order.");
+    Console.WriteLine(loaves+ " loaves have been added to your order costing $" + Bread.PriceCalc().ToString() + ".");
+  }
+
+  public static void PastrySelect()
+  {
+    
   }
 }
