@@ -4,19 +4,32 @@ namespace Bakery
 {
   public class Bread
   {
+    public string Type { get; set; } 
     private static List<Bread> _breadOrder = new List<Bread> {};
 
     public Bread()
     {
+      Type = "Bread of the day";
       _breadOrder.Add(this);
     }
     public Bread(int num)
     {
+      Type = "Bread of the day";
       for (int i = 0; i < num; i++)
       {
         _breadOrder.Add(this);
       }
     }
+
+    public Bread(int num, string type)
+    {
+      Type = type;
+      for (int i = 0; i < num; i++)
+      {
+        _breadOrder.Add(this);
+      }
+    }
+
 
     public static List<Bread> GetOrder()
     {

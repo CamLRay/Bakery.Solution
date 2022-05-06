@@ -36,6 +36,14 @@ namespace Bakery.Tests
     }
 
     [TestMethod]
+    public void BreadConstructor_BreadPricingAndSale_Bread()
+    {
+      string type = "sourdough";
+      Bread newBread = new Bread(1, type);
+      Assert.AreEqual("sourdough", newBread.Type);
+    }
+
+    [TestMethod]
     public void PriceCalc_CalculatesThePriceOfASingleLoaf_intPrice()
     {
       Bread newBread = new Bread();
@@ -62,5 +70,8 @@ namespace Bakery.Tests
       Bread newBread = new Bread(10);
       Assert.AreEqual(35, Bread.PriceCalc());
     }
+
+    
+
   }
 }

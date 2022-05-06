@@ -36,6 +36,14 @@ namespace Bakery.Tests
     }
 
     [TestMethod]
+    public void PastryConstructor_PastryPricingAndSale_Pastry()
+    {
+      string type = "scone";
+      Pastry newPastry = new Pastry(1, type);
+      Assert.AreEqual("scone", newPastry.Type);
+    }
+
+    [TestMethod]
     public void PriceCalc_CalculatesThePriceOfASingleLoaf_intPrice()
     {
       Pastry newPastry = new Pastry();

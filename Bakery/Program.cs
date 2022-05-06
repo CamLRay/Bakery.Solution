@@ -45,7 +45,7 @@ public class Program
         Shopping();
         break;
 
-      case "N":
+      default:
         FinalizeOrder();
         break;
     } 
